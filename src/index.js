@@ -1,9 +1,9 @@
 const dotenv = require('dotenv');
 const app = require('./App');
-const Loaders = require('./Loaders/index');
+const startDB = require('./Config/mongoose');
 
 dotenv.config();
-Loaders.start();
+startDB();
 
 const PORT = process.env.PORT || 8000;
 
