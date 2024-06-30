@@ -1,9 +1,9 @@
-const EventoModel = require('../Models/EventoModel');
+const EventModel = require('../Models/EventModel');
 
-class EventoController {
+class EventController {
   async create(req, res) {
     try {
-      const evento = await EventoModel.create(req.body);
+      const evento = await EventModel.create(req.body);
       return res.status(200).json(evento);
     } catch (error) {
       res
@@ -14,7 +14,7 @@ class EventoController {
 
   async read(req, res) {
     try {
-      const evento = await EventoModel.find();
+      const evento = await EventModel.find();
 
       return res.status(200).json(evento);
     } catch {
@@ -25,7 +25,7 @@ class EventoController {
   async update(req, res) {
     try {
       const { id } = req.params;
-      const eventoEncontrado = await EventoModel.findById(id);
+      const eventoEncontrado = await EventModel.findById(id);
 
       if (!eventoEncontrado)
         return res.status(404).json({ message: 'Usuario não encontrado' });
@@ -42,7 +42,7 @@ class EventoController {
     try {
       const { id } = req.params;
 
-      const eventoEncontrado = await EventoModel.findById(id);
+      const eventoEncontrado = await EventModel.findById(id);
 
       if (!eventoEncontrado)
         return res.status(404).json({ message: 'Usuario não encontrado' });
@@ -56,4 +56,4 @@ class EventoController {
   }
 }
 
-module.exports = new EventoController();
+module.exports = new EventController();

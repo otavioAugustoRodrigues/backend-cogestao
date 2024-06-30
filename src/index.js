@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const app = require('./App');
-const startDB = require('./Config/mongoose');
+const startDB = require('./Config/mongodb');
 
 dotenv.config();
 startDB();
